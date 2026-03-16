@@ -86,7 +86,7 @@ const Checkout = () => {
                         <p className="text-sm font-medium">{item.product.name}</p>
                         <p className="text-xs text-muted-foreground">Qty: {item.quantity}</p>
                       </div>
-                      <p className="text-sm font-bold tabular-nums">${(item.product.price * item.quantity).toFixed(2)}</p>
+                      <p className="text-sm font-bold tabular-nums">₹{(item.product.price * item.quantity).toLocaleString("en-IN")}</p>
                     </div>
                   ))}
                 </div>
