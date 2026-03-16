@@ -53,9 +53,9 @@ const Cart = () => {
               <div className="p-6 rounded-2xl bg-card border shadow-card space-y-4">
                 <h2 className="text-lg font-bold">Order Summary</h2>
                 <div className="space-y-2 text-sm">
-                  <div className="flex justify-between"><span className="text-muted-foreground">Subtotal</span><span className="tabular-nums">${total.toFixed(2)}</span></div>
+                  <div className="flex justify-between"><span className="text-muted-foreground">Subtotal</span><span className="tabular-nums">₹{total.toLocaleString("en-IN")}</span></div>
                   <div className="flex justify-between"><span className="text-muted-foreground">Shipping</span><span className="text-green-500">Free</span></div>
-                  <div className="border-t pt-2 flex justify-between font-bold text-base"><span>Total</span><span className="tabular-nums">${total.toFixed(2)}</span></div>
+                  <div className="border-t pt-2 flex justify-between font-bold text-base"><span>Total</span><span className="tabular-nums">₹{total.toLocaleString("en-IN")}</span></div>
                 </div>
                 <Link to="/checkout" className="block w-full h-12 gradient-cta rounded-xl text-sm font-semibold text-primary-foreground text-center leading-[3rem] shadow-brand hover:opacity-90 transition-opacity">
                   Proceed to Checkout

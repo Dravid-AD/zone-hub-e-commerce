@@ -40,7 +40,7 @@ const Wishlist = () => {
                   <div className="p-4">
                     <h3 className="text-sm font-semibold mb-1 truncate">{p.name}</h3>
                     <div className="flex items-center justify-between">
-                      <span className="text-lg font-bold">${p.price}</span>
+                      <span className="text-lg font-bold">₹{p.price.toLocaleString("en-IN")}</span>
                       <motion.button whileTap={{ scale: 0.9 }} onClick={() => addItem(p)} className="p-2.5 rounded-full gradient-bg text-primary-foreground">
                         <ShoppingCart className="w-4 h-4" />
                       </motion.button>

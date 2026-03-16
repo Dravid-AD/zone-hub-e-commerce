@@ -74,13 +74,13 @@ const CartSidebar = () => {
                 <div className="border-t p-6 space-y-4">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span className="font-bold tabular-nums">${total.toFixed(2)}</span>
+                    <span className="font-bold tabular-nums">₹{total.toLocaleString("en-IN")}</span>
                   </div>
                   <button
                     onClick={() => { setOpen(false); navigate("/checkout"); }}
                     className="w-full h-12 gradient-cta rounded-full text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
                   >
-                    Checkout — ${total.toFixed(2)}
+                    Checkout — ₹{total.toLocaleString("en-IN")}
                   </button>
                   <button
                     onClick={() => { setOpen(false); navigate("/cart"); }}

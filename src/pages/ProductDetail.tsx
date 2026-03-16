@@ -94,7 +94,7 @@ const ProductDetail = () => {
             {/* Perks */}
             <div className="grid grid-cols-3 gap-4 pt-4 border-t">
               {[
-                { icon: Truck, label: "Free Shipping", sub: "Orders $50+" },
+                { icon: Truck, label: "Free Shipping", sub: "Orders ₹500+" },
                 { icon: Shield, label: "2 Year Warranty", sub: "Full coverage" },
                 { icon: RotateCcw, label: "30-Day Returns", sub: "No questions" },
               ].map(p => (
