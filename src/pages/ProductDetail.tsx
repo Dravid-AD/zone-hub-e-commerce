@@ -49,10 +49,10 @@ const ProductDetail = () => {
               <span className="text-xs text-green-500 font-medium">● In Stock</span>
             </div>
             <div className="flex items-baseline gap-3">
-              <span className="text-4xl font-bold">${product.price}</span>
+              <span className="text-4xl font-bold">₹{product.price.toLocaleString("en-IN")}</span>
               {product.originalPrice && (
                 <>
-                  <span className="text-xl text-muted-foreground line-through">${product.originalPrice}</span>
+                  <span className="text-xl text-muted-foreground line-through">₹{product.originalPrice.toLocaleString("en-IN")}</span>
                   <span className="text-sm font-bold text-green-500">-{Math.round((1 - product.price / product.originalPrice) * 100)}%</span>
                 </>
               )}
