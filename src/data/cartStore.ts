@@ -1,40 +1,11 @@
-import { create } from 'zustand';
+import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import React from 'react';
 import type { Product } from './products';
 
 interface CartItem {
   product: Product;
   quantity: number;
 }
-
-interface CartStore {
-  items: CartItem[];
-  isOpen: boolean;
-  addItem: (product: Product) => void;
-  removeItem: (productId: string) => void;
-  updateQuantity: (productId: string, quantity: number) => void;
-  clearCart: () => void;
-  toggleCart: () => void;
-  setOpen: (open: boolean) => void;
-  total: () => number;
-  itemCount: () => number;
-}
-
-// Simple in-memory store without zustand since we don't have it
-let listeners: (() => void)[] = [];
-let cartState: { items: CartItem[]; isOpen: boolean } = { items: [], isOpen: false };
-
-function notify() { listeners.forEach(l => l()); }
-
-export function useCart() {
-  // Using React state as simple store
-  const [, forceUpdate] = (await import('react')).useState(0);
-  
-  return cartState;
-}
-
-// Actually let's use React context instead
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
-import React from 'react';
 
 interface CartContextType {
   items: CartItem[];
