@@ -42,7 +42,7 @@ const Cart = () => {
                     </div>
                     <div className="flex flex-col items-end justify-between">
                       <button onClick={() => removeItem(item.product.id)} className="p-2 text-muted-foreground hover:text-destructive transition-colors"><X className="w-4 h-4" /></button>
-                      <p className="text-sm font-bold tabular-nums">${(item.product.price * item.quantity).toFixed(2)}</p>
+                      <p className="text-sm font-bold tabular-nums">₹{(item.product.price * item.quantity).toLocaleString("en-IN")}</p>
                     </div>
                   </motion.div>
                 ))}
