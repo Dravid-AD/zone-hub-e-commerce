@@ -33,7 +33,7 @@ const Cart = () => {
                     <div className="flex-1 min-w-0">
                       <Link to={`/product/${item.product.id}`} className="text-sm font-semibold hover:text-primary transition-colors">{item.product.name}</Link>
                       <p className="text-xs text-muted-foreground mt-1">{item.product.category}</p>
-                      <p className="text-lg font-bold mt-2 gradient-text">${item.product.price}</p>
+                      <p className="text-lg font-bold mt-2 gradient-text">₹{item.product.price.toLocaleString("en-IN")}</p>
                       <div className="flex items-center gap-3 mt-3">
                         <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)} className="p-1.5 rounded-lg border hover:bg-secondary transition-colors"><Minus className="w-3 h-3" /></button>
                         <span className="text-sm font-semibold tabular-nums w-6 text-center">{item.quantity}</span>
