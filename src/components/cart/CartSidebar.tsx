@@ -53,7 +53,7 @@ const CartSidebar = () => {
                         <img src={item.product.image} alt={item.product.name} className="w-20 h-20 rounded-lg object-cover" />
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium truncate">{item.product.name}</p>
-                          <p className="text-sm font-bold gradient-text">${item.product.price}</p>
+                          <p className="text-sm font-bold gradient-text">₹{item.product.price.toLocaleString("en-IN")}</p>
                           <div className="flex items-center gap-2 mt-2">
                             <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)} className="p-1 rounded-md hover:bg-secondary transition-colors">
                               <Minus className="w-3 h-3" />
