@@ -69,9 +69,9 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-lg font-bold">${product.price}</span>
+              <span className="text-lg font-bold">₹{product.price.toLocaleString("en-IN")}</span>
               {product.originalPrice && (
-                <span className="text-sm text-muted-foreground line-through">${product.originalPrice}</span>
+                <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice.toLocaleString("en-IN")}</span>
               )}
             </div>
             <motion.button

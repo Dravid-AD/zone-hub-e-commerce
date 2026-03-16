@@ -86,7 +86,7 @@ const Checkout = () => {
                         <p className="text-sm font-medium">{item.product.name}</p>
                         <p className="text-xs text-muted-foreground">Qty: {item.quantity}</p>
                       </div>
-                      <p className="text-sm font-bold tabular-nums">${(item.product.price * item.quantity).toFixed(2)}</p>
+                      <p className="text-sm font-bold tabular-nums">₹{(item.product.price * item.quantity).toLocaleString("en-IN")}</p>
                     </div>
                   ))}
                 </div>
@@ -103,9 +103,9 @@ const Checkout = () => {
           <div className="h-fit sticky top-24 p-6 rounded-2xl bg-card border shadow-card space-y-3">
             <h2 className="text-lg font-bold">Summary</h2>
             <div className="space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-muted-foreground">Subtotal</span><span className="tabular-nums">${total.toFixed(2)}</span></div>
+              <div className="flex justify-between"><span className="text-muted-foreground">Subtotal</span><span className="tabular-nums">₹{total.toLocaleString("en-IN")}</span></div>
               <div className="flex justify-between"><span className="text-muted-foreground">Shipping</span><span className="text-accent">Free</span></div>
-              <div className="border-t pt-2 flex justify-between font-bold"><span>Total</span><span className="tabular-nums">${total.toFixed(2)}</span></div>
+              <div className="border-t pt-2 flex justify-between font-bold"><span>Total</span><span className="tabular-nums">₹{total.toLocaleString("en-IN")}</span></div>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground pt-2">
               <Lock className="w-3 h-3" /> Secure 256-bit SSL encryption

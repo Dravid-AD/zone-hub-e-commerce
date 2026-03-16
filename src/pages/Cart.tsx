@@ -33,7 +33,7 @@ const Cart = () => {
                     <div className="flex-1 min-w-0">
                       <Link to={`/product/${item.product.id}`} className="text-sm font-semibold hover:text-primary transition-colors">{item.product.name}</Link>
                       <p className="text-xs text-muted-foreground mt-1">{item.product.category}</p>
-                      <p className="text-lg font-bold mt-2 gradient-text">${item.product.price}</p>
+                      <p className="text-lg font-bold mt-2 gradient-text">₹{item.product.price.toLocaleString("en-IN")}</p>
                       <div className="flex items-center gap-3 mt-3">
                         <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)} className="p-1.5 rounded-lg border hover:bg-secondary transition-colors"><Minus className="w-3 h-3" /></button>
                         <span className="text-sm font-semibold tabular-nums w-6 text-center">{item.quantity}</span>
@@ -42,7 +42,7 @@ const Cart = () => {
                     </div>
                     <div className="flex flex-col items-end justify-between">
                       <button onClick={() => removeItem(item.product.id)} className="p-2 text-muted-foreground hover:text-destructive transition-colors"><X className="w-4 h-4" /></button>
-                      <p className="text-sm font-bold tabular-nums">${(item.product.price * item.quantity).toFixed(2)}</p>
+                      <p className="text-sm font-bold tabular-nums">₹{(item.product.price * item.quantity).toLocaleString("en-IN")}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -53,9 +53,9 @@ const Cart = () => {
               <div className="p-6 rounded-2xl bg-card border shadow-card space-y-4">
                 <h2 className="text-lg font-bold">Order Summary</h2>
                 <div className="space-y-2 text-sm">
-                  <div className="flex justify-between"><span className="text-muted-foreground">Subtotal</span><span className="tabular-nums">${total.toFixed(2)}</span></div>
+                  <div className="flex justify-between"><span className="text-muted-foreground">Subtotal</span><span className="tabular-nums">₹{total.toLocaleString("en-IN")}</span></div>
                   <div className="flex justify-between"><span className="text-muted-foreground">Shipping</span><span className="text-green-500">Free</span></div>
-                  <div className="border-t pt-2 flex justify-between font-bold text-base"><span>Total</span><span className="tabular-nums">${total.toFixed(2)}</span></div>
+                  <div className="border-t pt-2 flex justify-between font-bold text-base"><span>Total</span><span className="tabular-nums">₹{total.toLocaleString("en-IN")}</span></div>
                 </div>
                 <Link to="/checkout" className="block w-full h-12 gradient-cta rounded-xl text-sm font-semibold text-primary-foreground text-center leading-[3rem] shadow-brand hover:opacity-90 transition-opacity">
                   Proceed to Checkout
