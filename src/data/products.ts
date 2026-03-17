@@ -7,6 +7,26 @@ import beautyImg from "@/assets/categories/beauty.jpg";
 import toysImg from "@/assets/categories/toys.jpg";
 import groceryImg from "@/assets/categories/grocery.jpg";
 
+// Product images
+import wirelessEarbudsImg from "@/assets/products/wireless-earbuds.jpg";
+import womensKurtiImg from "@/assets/products/womens-kurti.jpg";
+import electricKettleImg from "@/assets/products/electric-kettle.jpg";
+import airFryerImg from "@/assets/products/air-fryer.jpg";
+import dinnerSetImg from "@/assets/products/dinner-set.jpg";
+import riceCookerImg from "@/assets/products/rice-cooker.jpg";
+import psychologyOfMoneyImg from "@/assets/products/psychology-of-money.jpg";
+import zeroToOneImg from "@/assets/products/zero-to-one.jpg";
+import skippingRopeImg from "@/assets/products/skipping-rope.jpg";
+import cyclingHelmetImg from "@/assets/products/cycling-helmet.jpg";
+import tableTennisSetImg from "@/assets/products/table-tennis-set.jpg";
+import sunscreenSpf50Img from "@/assets/products/sunscreen-spf50.jpg";
+import liquidFoundationImg from "@/assets/products/liquid-foundation.jpg";
+import puzzleGameImg from "@/assets/products/puzzle-game.jpg";
+import toyTrainSetImg from "@/assets/products/toy-train-set.jpg";
+import boardGameImg from "@/assets/products/board-game.jpg";
+import magneticBlocksImg from "@/assets/products/magnetic-blocks.jpg";
+import iodizedSaltImg from "@/assets/products/iodized-salt.jpg";
+
 export interface Product {
   id: string;
   name: string;
