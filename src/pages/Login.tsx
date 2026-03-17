@@ -1,32 +1,54 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import { useToast } from "@/hooks/use-toast";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !password.trim()) {
+      toast({ title: "Please fill all fields", variant: "destructive" });
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem("zonehub_users") || "[]");
+    const user = users.find((u: any) => u.email === email && u.password === password);
+
+    if (!user) {
+      toast({ title: "Invalid credentials", description: "Check your email and password.", variant: "destructive" });
+      return;
+    }
+
+    localStorage.setItem("zonehub_user", JSON.stringify({ name: user.name, email: user.email }));
+    toast({ title: "Welcome back!", description: `Signed in as ${user.name}` });
+    navigate("/dashboard");
+  };
+
   return (
     <Layout>
       <div className="min-h-[80vh] flex items-center justify-center py-24">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="w-full max-w-md mx-6"
-        >
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="w-full max-w-md mx-6">
           <div className="glass rounded-3xl p-8 shadow-brand">
             <div className="text-center mb-8">
               <h1 className="text-2xl font-bold mb-2">Welcome back</h1>
               <p className="text-sm text-muted-foreground">Sign in to your Zone Hub account</p>
             </div>
-            <form className="space-y-4" onSubmit={e => e.preventDefault()}>
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input type="email" placeholder="Email address" className="w-full h-12 pl-11 pr-4 rounded-xl bg-muted/20 border-b-2 border-transparent focus:border-accent outline-none text-sm transition-colors" />
+                <input type="email" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} className="w-full h-12 pl-11 pr-4 rounded-xl bg-muted/20 border-b-2 border-transparent focus:border-accent outline-none text-sm transition-colors" />
               </div>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input type={showPass ? "text" : "password"} placeholder="Password" className="w-full h-12 pl-11 pr-11 rounded-xl bg-muted/20 border-b-2 border-transparent focus:border-accent outline-none text-sm transition-colors" />
+                <input type={showPass ? "text" : "password"} placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="w-full h-12 pl-11 pr-11 rounded-xl bg-muted/20 border-b-2 border-transparent focus:border-accent outline-none text-sm transition-colors" />
                 <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
                   {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
