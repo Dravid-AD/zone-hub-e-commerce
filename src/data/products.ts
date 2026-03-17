@@ -1,3 +1,12 @@
+import electronicsImg from "@/assets/categories/electronics.jpg";
+import clothingImg from "@/assets/categories/clothing.jpg";
+import homeKitchenImg from "@/assets/categories/home-kitchen.jpg";
+import booksImg from "@/assets/categories/books.jpg";
+import sportsImg from "@/assets/categories/sports.jpg";
+import beautyImg from "@/assets/categories/beauty.jpg";
+import toysImg from "@/assets/categories/toys.jpg";
+import groceryImg from "@/assets/categories/grocery.jpg";
+
 export interface Product {
   id: string;
   name: string;
@@ -22,14 +31,14 @@ export interface Category {
 }
 
 export const categories: Category[] = [
-  { id: "electronics", name: "Electronics", icon: "Cpu", count: 15, image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80" },
-  { id: "clothing", name: "Clothing", icon: "Shirt", count: 15, image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&q=80" },
-  { id: "home-kitchen", name: "Home & Kitchen", icon: "Home", count: 15, image: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&q=80" },
-  { id: "books", name: "Books", icon: "BookOpen", count: 15, image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&q=80" },
-  { id: "sports", name: "Sports", icon: "Dumbbell", count: 15, image: "https://images.unsplash.com/photo-1461896836934-bd45ba8fcb32?w=400&q=80" },
-  { id: "beauty", name: "Beauty", icon: "Sparkles", count: 15, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" },
-  { id: "toys", name: "Toys", icon: "Gamepad2", count: 15, image: "https://images.unsplash.com/photo-1558060351-e39e3d73e681?w=400&q=80" },
-  { id: "grocery", name: "Grocery", icon: "Apple", count: 15, image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&q=80" },
+  { id: "electronics", name: "Electronics", icon: "Cpu", count: 15, image: electronicsImg },
+  { id: "clothing", name: "Clothing", icon: "Shirt", count: 15, image: clothingImg },
+  { id: "home-kitchen", name: "Home & Kitchen", icon: "Home", count: 15, image: homeKitchenImg },
+  { id: "books", name: "Books", icon: "BookOpen", count: 15, image: booksImg },
+  { id: "sports", name: "Sports", icon: "Dumbbell", count: 15, image: sportsImg },
+  { id: "beauty", name: "Beauty", icon: "Sparkles", count: 15, image: beautyImg },
+  { id: "toys", name: "Toys", icon: "Gamepad2", count: 15, image: toysImg },
+  { id: "grocery", name: "Grocery", icon: "Apple", count: 15, image: groceryImg },
 ];
 
 export const products: Product[] = [
